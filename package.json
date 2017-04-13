@@ -6,7 +6,7 @@
   "scripts": {
     "example": "webpack -w -d --config example/webpack.config.js example/example.jsx example/all.js",
     "build-umd": "webpack index.jsx umd/index.js",
-    "build-cjs": "babel index.jsx -d lib",
+    "build-cjs": "babel index.jsx -d lib --plugins=transform-runtime,transform-class-properties,transform-object-rest-spread --presets=es2015,react",
     "prerelease": "npm run build-umd && npm run build-cjs"
   },
   "repository": {
@@ -22,9 +22,15 @@
     "react-component"
   ],
   "devDependencies": {
-    "babel": "^5.5.8",
-    "babel-core": "^5.2.17",
-    "babel-loader": "^5.0.0",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "webpack": "^1.8.11"
   },
   "author": "chenglou <chenglou92@gmail.com>",
